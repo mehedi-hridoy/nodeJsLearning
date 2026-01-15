@@ -8,5 +8,8 @@ GET /users/2 - Get the  user with ID 1
 
 POST /users -  create new user
 
+Dynammic Path Paramter 
+GET /api/users/:id 
+
 
 PATCH /users/1 - Edit the user  with ID 1

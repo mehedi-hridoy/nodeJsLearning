@@ -19,6 +19,26 @@ app.get("/users",(req,res) => {
     res.send(html);
 })
 
+app.get('/api/users/:id', (req,res) => {
+     const id = parseInt(req.params.id);
+     const user = users.find(u => u.id === id);
+     if(user) {
+        return res.json(user);
+     } else {
+        return res.status(404).json({message: 'User not found'});
+     }
+});
+
+app.get('/users/:id', (req,res) => {
+     const id = parseInt(req.params.id);
+     const user = users.find(u => u.id === id);
+     if(user) {
+        return res.json(user);
+     } else {
+        return res.status(404).json({message: 'User not found'});
+     }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
