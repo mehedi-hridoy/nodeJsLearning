@@ -4,6 +4,14 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 // dummy data from Mockaroo .. https://mockaroo.com/ it's an amazing site
+
+// Middleware - plugin that helps to handle req and res
+app.use(express.urlencoded({ extended: false }));
+app.use(req,res,next => {
+   console.log("Hello from Middleware");
+   next();
+
+})
 // Routes
 app.get('/api/users', (req,res) => {
     return res.json(users);
