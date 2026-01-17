@@ -27,6 +27,13 @@ app.get("/users",(req,res) => {
     res.send(html);
 })
 
+
+// exampele of http headers
+app.get('/headers', (req,res) => {
+    console.log(req.headers);
+    res.set('Custom-Header', 'HelloWorld');
+    return res.send('Check the headers');
+});
 app.get('/api/users/:id', (req,res) => {
      const id = parseInt(req.params.id);
      const user = users.find(u => u.id === id);
