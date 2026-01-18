@@ -57,3 +57,13 @@ app.get('/users/:id', (req,res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// a new topic in express is Middleware
+app.use((req, res, next) => {
+   console.log("Hello from Middleware");
+   next();
+});
+// Middleware are functions that have access to req and res objects
+// and the next function in the application request-response cycle.
+// The next function is a function in the Express router which,
+// when invoked, executes the middleware succeeding the current middleware.
